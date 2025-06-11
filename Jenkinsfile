@@ -19,7 +19,9 @@ pipeline {
 
         stage('Build') {
             steps {
-                bat 'mvn clean compile'
+                dir('my-app'){
+                    sh 'mvn clean compile'
+                }
             }
         }
 
@@ -38,10 +40,10 @@ pipeline {
 
     post {
         success {
-            echo '✅ Build and tests completed successfully!'
+            echo 'Build and tests completed successfully!'
         }
         failure {
-            echo '❌ Build failed. Check logs for details.'
+            echo 'Build failed. Check logs for details.'
         }
     }
 }
