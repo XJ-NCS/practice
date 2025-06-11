@@ -42,7 +42,7 @@ pipeline {
         }
     }
 
-    post {g
+    post {
         success {
             echo 'Build and tests completed successfully!'
         }
