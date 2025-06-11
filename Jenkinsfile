@@ -20,7 +20,7 @@ pipeline {
         stage('Build') {
             steps {
                 dir('my-app'){
-                    sh 'mvn clean compile'
+                    bat 'mvn clean compile'
                 }
             }
         }
