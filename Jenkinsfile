@@ -27,18 +27,22 @@ pipeline {
 
         stage('Test') {
             steps {
-                bat 'mvn test'
+                dir('my-app'){
+                    bat 'mvn test'
+                }
             }
         }
 
         stage('Package') {
             steps {
-                bat 'mvn package'
+                dir('my-app'){
+                    bat 'mvn package'
+                }
             }
         }
     }
 
-    post {
+    post {g
         success {
             echo 'Build and tests completed successfully!'
         }
