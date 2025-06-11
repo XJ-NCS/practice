@@ -17,26 +17,18 @@ pipeline {
             }
         }
 
-        stage('Build') {
-            steps {
-                dir('my-app'){
-                    bat 'mvn clean compile'
-                }
-            }
-        }
-
-        stage('Test') {
-            steps {
-                dir('my-app'){
-                    bat 'mvn test'
-                }
-            }
-        }
-
         stage('Package') {
             steps {
                 dir('my-app'){
                     bat 'mvn package'
+                }
+            }
+        }
+
+        stage('Run') {
+            steps {
+                dir('my-app'){
+                    bat 'java -cp target/my-app-1.0-SNAPSHOT.jar com.example.App'
                 }
             }
         }
